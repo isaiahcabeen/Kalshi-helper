@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
+/* ===== Root Theme Variables ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;      /* Pure black background */
+  --foreground: #e5e5e5;      /* Light gray text */
+  --card: #1a1a1a;            /* Dark gray card background */
+  --card-border: #2a2a2a;     /* Subtle border */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ===== Base Styles ===== */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Card Utility Class ===== */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px;
 }
