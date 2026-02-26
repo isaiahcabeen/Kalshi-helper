@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { supabase } from "@/lib/supabase";
 
 export async function GET() {
-  const { data, error } = await supabase
+  const client = supabase(); // call the function to get the client
+  const { data, error } = await client
     .from("videos")
     .select("*");
 
@@ -13,8 +14,9 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const newVideo = await req.json();
+  const client = supabase(); // call the function to get the client
 
-  const { error } = await supabase
+  const { error } = await client
     .from("videos")
     .insert([newVideo]);
 
